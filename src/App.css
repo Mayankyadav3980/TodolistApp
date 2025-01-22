@@ -1,4 +1,4 @@
-.app-container{
+.app-container {
   border: 1px solid white;
   width: 100vw;
   height: 100vh;
@@ -6,19 +6,74 @@
   align-items: center;
   justify-content: center;
   position: relative;
-
 }
 
-
-nav{
+nav {
   position: absolute;
   border: 1px solid red;
   width: 100vw;
-  height: 30px;
+  height: fit-content;
   top: 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: large;
+  padding: 0.5em;
 }
-.main-container{
+
+.main-container {
+  border: 1px solid red;
   width: 500px;
-  height: 500px;
-  background-color: yellow;
+  height: 600px;
+  /* background-color: yellow; */
+}
+
+.form-contianer {
+  border: 1px solid yellow;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* padding: 10px; */
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.form-contianer > input {
+  width: 70%;
+  height: 30px;
+  /* margin: 10px; */
+  outline: none;
+}
+
+.list-container {
+  border: 1px solid cyan;
+  margin: 10px;
+}
+
+.todo {
+  border: 1px solid violet;
+  margin: 10px;
+  /* padding: 5px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo > p {
+  /* line-height: 10px; */
+  font-size: 1.2rem;
+}
+.options {
+}
+
+.icon{
+  margin: 3px 5px;
+  /* margin-right: 5px; */
+}
+.icon:hover{
+  cursor: pointer;
+ transform: scale(1.1);
+}
+#edit {
+}
+#del {
 }
