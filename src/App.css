@@ -22,8 +22,9 @@ nav {
 
 .main-container {
   border: 1px solid red;
-  width: 500px;
-  height: 600px;
+  width: 600px;
+  height: 650px;
+  /* overflow: scroll; */
   /* background-color: yellow; */
 }
 
@@ -47,6 +48,8 @@ nav {
 .list-container {
   border: 1px solid cyan;
   margin: 10px;
+  height: 85%;
+  overflow: scroll;
 }
 
 .todo {
