@@ -38,7 +38,12 @@ nav {
   margin-bottom: 20px;
 }
 
-.form-contianer > input {
+/* form{
+  border: 1px solid cyan;
+  width: 100%;
+} */
+
+form > input {
   width: 70%;
   height: 30px;
   /* margin: 10px; */
