@@ -22,7 +22,7 @@ nav {
 
 .main-container {
   border: 1px solid red;
-  width: 600px;
+  width: 650px;
   height: 650px;
   /* overflow: scroll; */
   /* background-color: yellow; */
@@ -60,17 +60,20 @@ form > input {
 .todo {
   border: 1px solid violet;
   margin: 10px;
-  /* padding: 5px; */
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.todo > p {
+.title{
   /* line-height: 10px; */
   font-size: 1.2rem;
+  width: 70%;
 }
 .options {
+  display: flex;
+
 }
 
 .icon{
