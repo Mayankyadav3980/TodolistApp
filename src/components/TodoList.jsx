@@ -12,14 +12,14 @@ import {
 
 const TodoList = () => {
   const dispatch = useDispatch();
-  const { todos, currentTitle, showEdit, todoToUpdate } = useSelector(
-    (state) => state.todoReducer
-  );
+  const { todos } = useSelector((state) => state.todoReducer);
 
+  //fetches todos from api on component mount
   useEffect(() => {
     dispatch(getTodos());
   }, []);
 
+  //handles edit todo functionality
   const handleEdit = (id) => {
     let temp = todos.find((todo) => todo.id === id);
 
@@ -28,6 +28,7 @@ const TodoList = () => {
     dispatch(setTodoToUpdate(temp));
   };
 
+  //dispatches deleteTodo action
   const handleDelete = (id) => {
     dispatch(delTodo(id));
   };

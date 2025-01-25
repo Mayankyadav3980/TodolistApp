@@ -1,4 +1,3 @@
-import js from "@eslint/js";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -8,6 +7,7 @@ const initialState = {
   todoToUpdate: {},
 };
 
+//thunk action to fetch todos form API
 export const getTodos = createAsyncThunk(
   "todo/getTodos",
   async (args, thunkAPI) => {
@@ -17,6 +17,7 @@ export const getTodos = createAsyncThunk(
   }
 );
 
+//thunk action to create a resource at server
 export const addTodo = createAsyncThunk("todo/addTodo", async (args) => {
   const res = await fetch("https://jsonplaceholder.typicode.com/todos", {
     method: "POST",
@@ -28,6 +29,7 @@ export const addTodo = createAsyncThunk("todo/addTodo", async (args) => {
   return res.json();
 });
 
+//thunk action to edit a resource at server
 export const editTodo = createAsyncThunk("todo/editTodo", async (args) => {
   const res = await fetch("https://jsonplaceholder.typicode.com/todos/1", {
     method: "PUT",
@@ -41,6 +43,7 @@ export const editTodo = createAsyncThunk("todo/editTodo", async (args) => {
   return json;
 });
 
+//thunk action to delete a resource at server
 export const delTodo = createAsyncThunk("todo/delTodo", async (args) => {
   await fetch("https://jsonplaceholder.typicode.com/todos/1", {
     method: "DELETE",
@@ -52,7 +55,6 @@ const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
-    delete: (state, action) => {},
     setCurrentTitle: (state, action) => {
       state.currentTitle = action.payload;
     },
@@ -73,7 +75,7 @@ const todoSlice = createSlice({
       state.todos.unshift({ ...action.payload, id: len + 1 });
     });
 
-    builder.addCase(editTodo.fulfilled, (state, action) => {
+    builder.addCase(editTodo.fulfilled, (state) => {
       const updatedTodo = state.todoToUpdate;
       const idx = state.todos.findIndex((todo) => todo.id === updatedTodo.id);
       state.todos.splice(idx, 1, updatedTodo);

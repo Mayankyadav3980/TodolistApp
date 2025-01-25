@@ -1,45 +1,46 @@
-import React, {useState} from 'react'
-import { useDispatch } from 'react-redux'
-import { addTodo, editTodo } from '../redux/todoReducer'
-import { useSelector } from 'react-redux'
-import { setCurrentTitle,setShowEdit, setTodoToUpdate } from "../redux/todoReducer";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { addTodo, editTodo } from "../redux/todoReducer";
+import { useSelector } from "react-redux";
+import {
+  setCurrentTitle,
+  setShowEdit,
+  setTodoToUpdate,
+} from "../redux/todoReducer";
 
 const TodoForm = () => {
   const dispatch = useDispatch();
-  const {currentTitle, showEdit, todoToUpdate} = useSelector(state => state.todoReducer)
-  // const [title, setTitle] = useState('');
 
-  // console.log(currentTitle);
-  
-  // currentTitle= title;
-  // dispatch(setCurrentTitle(title));
+  //importing  states from store
+  const { currentTitle, showEdit, todoToUpdate } = useSelector(
+    (state) => state.todoReducer
+  );
+
+  //function to handle both add and update todo functionality
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(showEdit){
+    if (showEdit) {
       let updatedTodo = { ...todoToUpdate, title: currentTitle };
       dispatch(setTodoToUpdate(updatedTodo));
       dispatch(editTodo(updatedTodo));
       dispatch(setShowEdit());
-    }else{
+    } else {
       dispatch(addTodo({ title: currentTitle, completed: false }));
     }
-    // setTitle('');
-    // currentTitle=title;
-    dispatch(setCurrentTitle(''));
+    dispatch(setCurrentTitle(""));
   };
 
   return (
-    
-      <form className="form-contianer" action="" onSubmit={handleSubmit}>
-        <input type="text" 
-        onChange={e=>dispatch(setCurrentTitle((e.target.value)))}
-        // onChange={e=>setTitle(e.target.value)}
+    <form className="form-contianer" action="" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        onChange={(e) => dispatch(setCurrentTitle(e.target.value))}
         value={currentTitle}
-        required />
-        <button type="submit">{showEdit ? 'Update' : 'Add'}</button>
-      </form>
-    
+        required
+      />
+      <button type="submit">{showEdit ? "Update" : "Add"}</button>
+    </form>
   );
-}
+};
 
-export default TodoForm
+export default TodoForm;

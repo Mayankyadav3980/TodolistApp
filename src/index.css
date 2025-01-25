@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -28,19 +28,15 @@ button {
   font-family: inherit;
   color: black;
   background-color: white;
-  /* background-color: #1a1a1a; */
   cursor: pointer;
   transition: border-color 0.25s;
   margin: 8px 4px;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: white;
+  color: white;
+  background-color: transparent;
 }
-/* button:focus, */
-/* button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

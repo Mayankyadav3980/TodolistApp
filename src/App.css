@@ -1,16 +1,13 @@
 .app-container {
-  /* border: 1px solid white; */
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   flex-direction: column;
   position: relative;
 }
 
 nav {
-  /* position: absolute; */
   border-bottom: 1px solid white;
   width: 100vw;
   height: fit-content;
@@ -28,8 +25,6 @@ nav {
   width: 650px;
   height: fit-content;
   margin-bottom: 5rem;
-  /* overflow: scroll; */
-  /* background-color: yellow; */
 }
 
 .form-contianer {
@@ -37,33 +32,25 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding:  10px 0 15px 0;
+  padding: 10px 0 15px 0;
   margin: 10px;
   margin-bottom: 20px;
 }
-
-/* form{
-  border: 1px solid cyan;
-  width: 100%;
-} */
 
 form > input {
   border: 2px solid grey;
   width: 80%;
   height: 40px;
   font-size: large;
-  padding-left: 10px;
-  /* margin: 10px; */
+  padding: 0 13px;
   outline: none;
-  background-color:transparent;
+  background-color: transparent;
   border-radius: 1rem;
 }
 
 .list-container {
-  /* border: 1px solid cyan; */
   margin: 10px;
   height: fit-content;
-  /* height: 82%; */
   overflow: scroll;
 }
 
@@ -77,31 +64,23 @@ form > input {
   justify-content: space-between;
 }
 
-.todo:hover{
-  /* transition: all ease; */
+.todo:hover {
   transform: scale(1.02);
   border-color: white;
 }
 
-.title{
-  /* line-height: 10px; */
+.title {
   font-size: 1.2rem;
   width: 70%;
 }
 .options {
   display: flex;
-
 }
 
-.icon{
+.icon {
   margin: 3px 5px;
-  /* margin-right: 5px; */
 }
-.icon:hover{
+.icon:hover {
   cursor: pointer;
- transform: scale(1.1);
-}
-#edit {
-}
-#del {
+  transform: scale(1.1);
 }
