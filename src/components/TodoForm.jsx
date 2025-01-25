@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
-import { addTodo } from '../redux/todoReducer'
+import { addTodo, editTodo } from '../redux/todoReducer'
 import { useSelector } from 'react-redux'
-import { setCurrentTitle } from "../redux/todoReducer";
+import { setCurrentTitle,setShowEdit, setTodoToUpdate } from "../redux/todoReducer";
 
 const TodoForm = () => {
   const dispatch = useDispatch();
-  const {currentTitle, showEdit} = useSelector(state => state.todoReducer)
+  const {currentTitle, showEdit, todoToUpdate} = useSelector(state => state.todoReducer)
   // const [title, setTitle] = useState('');
 
   // console.log(currentTitle);
@@ -15,7 +15,14 @@ const TodoForm = () => {
   // dispatch(setCurrentTitle(title));
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTodo({ title: currentTitle, completed: false }));
+    if(showEdit){
+      let updatedTodo = { ...todoToUpdate, title: currentTitle };
+      dispatch(setTodoToUpdate(updatedTodo));
+      dispatch(editTodo(updatedTodo));
+      dispatch(setShowEdit());
+    }else{
+      dispatch(addTodo({ title: currentTitle, completed: false }));
+    }
     // setTitle('');
     // currentTitle=title;
     dispatch(setCurrentTitle(''));

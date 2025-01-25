@@ -3,11 +3,15 @@ import del from "../assets/del.svg";
 import edit from "../assets/edit.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { getTodos } from "../redux/todoReducer";
-import { setCurrentTitle, setShowEdit } from "../redux/todoReducer";
+import {
+  setCurrentTitle,
+  setShowEdit,
+  setTodoToUpdate,
+} from "../redux/todoReducer";
 
 const TodoList = () => {
     const dispatch = useDispatch();
-    const { todos, currentTitle, showEdit } = useSelector(state=> state.todoReducer);
+    const { todos, currentTitle, showEdit, todoToUpdate } = useSelector(state=> state.todoReducer);
     // const [title, setTitle] = useState('')
     // console.log(todos);
     
@@ -18,8 +22,11 @@ const TodoList = () => {
 
     const handleEdit = (id) => {
       let temp = todos.find(todo => todo.id === id);
+      console.log(temp);
+      
       dispatch(setCurrentTitle(temp.title));
       dispatch(setShowEdit());
+      dispatch(setTodoToUpdate(temp));
 
     };
 
