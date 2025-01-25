@@ -1,16 +1,17 @@
 .app-container {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  flex-direction: column;
   position: relative;
 }
 
 nav {
-  position: absolute;
-  border: 1px solid red;
+  /* position: absolute; */
+  border-bottom: 1px solid white;
   width: 100vw;
   height: fit-content;
   top: 0;
@@ -18,22 +19,25 @@ nav {
   font-weight: 500;
   font-size: large;
   padding: 0.5em;
+  margin-bottom: 5rem;
 }
 
 .main-container {
-  border: 1px solid red;
+  border: 1px solid white;
+  border-radius: 10px;
   width: 650px;
-  height: 650px;
+  height: fit-content;
+  margin-bottom: 5rem;
   /* overflow: scroll; */
   /* background-color: yellow; */
 }
 
 .form-contianer {
-  border: 1px solid yellow;
+  border-bottom: 2px solid whitesmoke;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  /* padding: 10px; */
+  padding:  10px 0 15px 0;
   margin: 10px;
   margin-bottom: 20px;
 }
@@ -44,26 +48,39 @@ nav {
 } */
 
 form > input {
-  width: 70%;
-  height: 30px;
+  border: 2px solid grey;
+  width: 80%;
+  height: 40px;
+  font-size: large;
+  padding-left: 10px;
   /* margin: 10px; */
   outline: none;
+  background-color:transparent;
+  border-radius: 1rem;
 }
 
 .list-container {
-  border: 1px solid cyan;
+  /* border: 1px solid cyan; */
   margin: 10px;
-  height: 85%;
+  height: fit-content;
+  /* height: 82%; */
   overflow: scroll;
 }
 
 .todo {
-  border: 1px solid violet;
+  border: 1px solid rgb(200, 194, 194);
+  border-radius: 10px;
   margin: 10px;
-  padding: 5px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.todo:hover{
+  /* transition: all ease; */
+  transform: scale(1.02);
+  border-color: white;
 }
 
 .title{
