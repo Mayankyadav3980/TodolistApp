@@ -1,38 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import del from "../assets/del.svg";
 import edit from "../assets/edit.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { getTodos } from "../redux/todoReducer";
 import {
+  getTodos,
+  delTodo,
   setCurrentTitle,
   setShowEdit,
   setTodoToUpdate,
 } from "../redux/todoReducer";
 
 const TodoList = () => {
-    const dispatch = useDispatch();
-    const { todos, currentTitle, showEdit, todoToUpdate } = useSelector(state=> state.todoReducer);
-    // const [title, setTitle] = useState('')
-    // console.log(todos);
-    
+  const dispatch = useDispatch();
+  const { todos, currentTitle, showEdit, todoToUpdate } = useSelector(
+    (state) => state.todoReducer
+  );
 
-    useEffect(()=> {
-        dispatch(getTodos());
-    },[])
+  useEffect(() => {
+    dispatch(getTodos());
+  }, []);
 
-    const handleEdit = (id) => {
-      let temp = todos.find(todo => todo.id === id);
-      console.log(temp);
-      
-      dispatch(setCurrentTitle(temp.title));
-      dispatch(setShowEdit());
-      dispatch(setTodoToUpdate(temp));
+  const handleEdit = (id) => {
+    let temp = todos.find((todo) => todo.id === id);
 
-    };
+    dispatch(setCurrentTitle(temp.title));
+    dispatch(setShowEdit());
+    dispatch(setTodoToUpdate(temp));
+  };
 
-    const handleDelete = (id) => {
-
-    }
+  const handleDelete = (id) => {
+    dispatch(delTodo(id));
+  };
 
   return (
     <div className="list-container">
